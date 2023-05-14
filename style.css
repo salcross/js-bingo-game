@@ -1,0 +1,364 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* PLAYER COLORS */
+
+:root {
+    --P1-COLOR: #420505;
+    --P2-COLOR: #041538;
+    --P3-COLOR: #20093d;
+    --P4-COLOR: #032b06;
+
+    --P1-SELECTED-COLOR: #ebb9b5;
+    --P2-SELECTED-COLOR: #a2c9d4;
+    --P3-SELECTED-COLOR: #ac9ad6;
+    --P4-SELECTED-COLOR: #aedfa8;
+}
+
+/* BODY STYLES */
+
+html {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 300;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url(img/space_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: black;
+    color: aliceblue;
+    min-height: 100vh;
+}
+
+
+/* HEADER */
+
+header {
+    background-color: #121414;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    letter-spacing: 0.7rem;
+}
+
+header p {
+    font-size: clamp(1.1rem, 2.2vw, 2.5rem);
+    padding: 10px 5px;
+}
+
+a, 
+a:visited {
+    color: aliceblue;
+}
+
+
+/* SETTINGS */
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    text-align: center;
+}
+
+.game-settings {
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #111111b2;
+    font-size: clamp(1.5rem, 4vw, 2.8rem);
+    padding: 5px;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    padding: 5px;
+    font-size: clamp(1.1rem, 2.2vw, 2rem);
+    font-weight: 300;
+}
+
+input {
+    font-family: "Quicksand", sans-serif;
+    font-size: clamp(1.1rem, 2.2vw, 2rem);
+    color: white;
+    margin-bottom: 12px;
+    padding: 3px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+#p1Name {
+    background-color: var(--P1-COLOR);
+}
+
+#p2Name {
+    background-color: var(--P2-COLOR);
+}
+
+#p3Name {
+    background-color: var(--P3-COLOR);
+}
+
+#p4Name {
+    background-color: var(--P4-COLOR);
+}
+
+.number-wrapper {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #111;
+    padding: 10px;
+}
+
+.current-number {
+    font-size: 3rem;
+    font-weight: 500;
+    min-height: 50px;
+}
+
+.announce-winner {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 500;
+}
+
+
+/* GAME AREA */
+
+.game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    gap: 5px;
+    padding: 10px 10px 100px 10px;
+    font-size: clamp(1.5rem, 4vw, 2.8rem);
+}
+
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.card-label {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    font-weight: 500;
+    text-shadow: 1px 1px 5px black;
+}
+
+
+/* CARDS */
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    width: 302px;
+    aspect-ratio: 1.2;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    border-right: 2px solid aliceblue;
+    border-bottom: 2px solid aliceblue;
+}
+
+.card-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #111;
+    border-top: 2px solid aliceblue;
+    border-left: 2px solid aliceblue;
+}
+
+.card-header div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    aspect-ratio: 1;
+    
+}
+
+.card-squares {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-auto-flow: column;
+}
+
+.card-squares  > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    aspect-ratio: 1;
+    background-color: #071024;
+    border-top: 2px solid aliceblue;
+    border-left: 2px solid aliceblue;
+}
+
+.p1 > *{
+    background-color: var(--P1-COLOR);
+}
+
+.p2 > *{
+    background-color: var(--P2-COLOR);
+}
+
+.p3 > *{
+    background-color: var(--P3-COLOR);
+}
+
+.p4 > *{
+    background-color: var(--P4-COLOR);
+}
+
+.free-space {
+    font-size: clamp(1rem, 1.5vh, 2.5rem);
+}
+
+.selected-number-p1 {
+    background-color: var(--P1-SELECTED-COLOR);
+    color: #111;
+    font-weight: 500;
+}
+
+.selected-number-p2 {
+    background-color: var(--P2-SELECTED-COLOR);
+    color: #111;
+    font-weight: 500;
+}
+
+.selected-number-p3 {
+    background-color: var(--P3-SELECTED-COLOR);
+    color: #111;
+    font-weight: 500;
+}
+
+.selected-number-p4 {
+    background-color: var(--P4-SELECTED-COLOR);
+    color: #111;
+    font-weight: 500;
+}
+
+.winning-number {
+    background-color: #fffce1;
+}
+
+
+/* FOOTER */
+
+footer {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background-color: #111111b2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+button {
+    display: block;
+    font-family: "Quicksand", sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.8rem);
+    font-weight: 500;
+    margin: 1vh;
+    padding: 15px;
+    background-color: #eee;
+    color: #111;
+    border: none;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 768px) {
+    .game-area {
+            grid-row: 1 / 5;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        display: grid;
+        grid-template-columns: max(25%, 250px) 1fr;
+        grid-template-rows: 20vh auto 1fr 15vh;
+    }
+
+    .number-wrapper {
+        background-color: #111111b2;
+    }
+
+    .current-number {
+        font-size: clamp(2rem, 4vw, 4rem);
+    }
+
+    .game-area {
+        grid-template-columns: repeat(2, 1fr);
+        border-left: 1px solid gray;
+        padding-bottom: 10px;
+    }    
+
+    .game-card {
+        width: clamp(305px, 30.1vh, 404px);
+        font-size: clamp(2rem, 3.5vh, 3rem);
+    }
+
+    .card-header div {
+        width: clamp(60px, 6vh, 80px);
+    }
+
+    .card-squares  > * {
+        align-items: center;
+        justify-content: center;
+        width: clamp(60px, 6vh, 80px);
+    }
+    
+    footer {
+        position: sticky;
+        bottom: 0;
+        width: auto;
+    }
+}

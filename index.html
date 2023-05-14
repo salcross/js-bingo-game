@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Game</title>
+    <link rel="icon" href="img/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" type="module"></script>
+</head>
+
+<body>
+    <header>
+        <h1>BINGO</h1>
+        <p>See more of my work <a href="https://salcross.github.io">here</a>.</p>
+    </header>
+
+    <section id="settings" class="game-settings">
+        <h2>Settings:</h2>
+        <h3>Edit Player Names</h3>
+        <input type="text" id="p1Name" name="name" maxlength="10" size="12" placeholder="Player 1">
+        <input type="text" id="p2Name" name="name" maxlength="10" size="12" placeholder="Player 2">
+        <input type="text" id="p3Name" name="name" maxlength="10" size="12" placeholder="Player 3">
+        <input type="text" id="p4Name" name="name" maxlength="10" size="12" placeholder="Player 4">
+    </section>
+
+    <section class="number-wrapper">
+        <h2>Current Number:</h2>
+        <p id="currentNumber" class="current-number"></p>
+        <p id="announceP1Win" class="announce-winner"></p>
+        <p id="announceP2Win" class="announce-winner"></p>
+        <p id="announceP3Win" class="announce-winner"></p>
+        <p id="announceP4Win" class="announce-winner"></p>
+    </section>
+
+    <section class="game-area">
+
+        <section class="card-wrapper">
+            <section class="card-label">
+                <p id="p1Label">Player 1</p>
+                <p id="p1Wins"></p>
+            </section>
+            <section class="game-card">
+                <div class="card-header">
+                    <div>B</div>
+                    <div>I</div>
+                    <div>N</div>
+                    <div>G</div>
+                    <div>O</div>
+                </div>
+                <div id="p1Squares" class="card-squares p1">
+                    <div class="number">1</div>
+                    <div class="number">2</div>
+                    <div class="number">3</div>
+                    <div class="number">4</div>
+                    <div class="number">5</div>
+                    <div class="number">6</div>
+                    <div class="number">7</div>
+                    <div class="number">8</div>
+                    <div class="number">9</div>
+                    <div class="number">10</div>
+                    <div class="number">11</div>
+                    <div class="number">12</div>
+                    <div class="free-space">FREE</div>
+                    <div class="number">13</div>
+                    <div class="number">14</div>
+                    <div class="number">16</div>
+                    <div class="number">17</div>
+                    <div class="number">18</div>
+                    <div class="number">19</div>
+                    <div class="number">20</div>
+                    <div class="number">21</div>
+                    <div class="number">22</div>
+                    <div class="number">23</div>
+                    <div class="number">24</div>
+                    <div class="number">25</div>
+                </div>
+            </section>
+        </section>
+
+        <section class="card-wrapper">
+            <section class="card-label">
+                <p id="p2Label">Player 2</p>
+                <p id="p2Wins"></p>
+            </section>
+            <section class="game-card">
+                <div class="card-header">
+                    <div>B</div>
+                    <div>I</div>
+                    <div>N</div>
+                    <div>G</div>
+                    <div>O</div>
+                </div>
+                <div id="p2Squares" class="card-squares p2">
+                    <div class="number">1</div>
+                    <div class="number">2</div>
+                    <div class="number">3</div>
+                    <div class="number">4</div>
+                    <div class="number">5</div>
+                    <div class="number">6</div>
+                    <div class="number">7</div>
+                    <div class="number">8</div>
+                    <div class="number">9</div>
+                    <div class="number">10</div>
+                    <div class="number">11</div>
+                    <div class="number">12</div>
+                    <div class="free-space">FREE</div>
+                    <div class="number">13</div>
+                    <div class="number">14</div>
+                    <div class="number">16</div>
+                    <div class="number">17</div>
+                    <div class="number">18</div>
+                    <div class="number">19</div>
+                    <div class="number">20</div>
+                    <div class="number">21</div>
+                    <div class="number">22</div>
+                    <div class="number">23</div>
+                    <div class="number">24</div>
+                    <div class="number">25</div>
+                </div>
+            </section>
+        </section>
+
+        <section class="card-wrapper">
+            <section class="card-label">
+                <p id="p3Label">Player 3</p>
+                <p id="p3Wins"></p>
+            </section>
+            <section class="game-card">
+                <div class="card-header">
+                    <div>B</div>
+                    <div>I</div>
+                    <div>N</div>
+                    <div>G</div>
+                    <div>O</div>
+                </div>
+                <div id="p3Squares" class="card-squares p3">
+                    <div class="number">1</div>
+                    <div class="number">2</div>
+                    <div class="number">3</div>
+                    <div class="number">4</div>
+                    <div class="number">5</div>
+                    <div class="number">6</div>
+                    <div class="number">7</div>
+                    <div class="number">8</div>
+                    <div class="number">9</div>
+                    <div class="number">10</div>
+                    <div class="number">11</div>
+                    <div class="number">12</div>
+                    <div class="free-space">FREE</div>
+                    <div class="number">13</div>
+                    <div class="number">14</div>
+                    <div class="number">16</div>
+                    <div class="number">17</div>
+                    <div class="number">18</div>
+                    <div class="number">19</div>
+                    <div class="number">20</div>
+                    <div class="number">21</div>
+                    <div class="number">22</div>
+                    <div class="number">23</div>
+                    <div class="number">24</div>
+                    <div class="number">25</div>
+                </div>
+            </section>
+        </section>
+
+        <section class="card-wrapper">
+            <section class="card-label">
+                <p id="p4Label">Player 4</p>
+                <p id="p4Wins"></p>
+            </section>
+            <section class="game-card">
+                <div class="card-header">
+                    <div>B</div>
+                    <div>I</div>
+                    <div>N</div>
+                    <div>G</div>
+                    <div>O</div>
+                </div>
+                <div id="p4Squares" class="card-squares p4">
+                    <div class="number">1</div>
+                    <div class="number">2</div>
+                    <div class="number">3</div>
+                    <div class="number">4</div>
+                    <div class="number">5</div>
+                    <div class="number">6</div>
+                    <div class="number">7</div>
+                    <div class="number">8</div>
+                    <div class="number">9</div>
+                    <div class="number">10</div>
+                    <div class="number">11</div>
+                    <div class="number">12</div>
+                    <div class="free-space">FREE</div>
+                    <div class="number">13</div>
+                    <div class="number">14</div>
+                    <div class="number">16</div>
+                    <div class="number">17</div>
+                    <div class="number">18</div>
+                    <div class="number">19</div>
+                    <div class="number">20</div>
+                    <div class="number">21</div>
+                    <div class="number">22</div>
+                    <div class="number">23</div>
+                    <div class="number">24</div>
+                    <div class="number">25</div>
+                </div>
+            </section>
+        </section>
+
+    </section>
+
+    <footer>
+        <button id="startButton">Start Game</button>
+        <button id="resetButton" class="hidden">Reset Board</button>
+    </footer>
+
+</body>
+
+</html>
