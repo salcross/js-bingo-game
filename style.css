@@ -80,6 +80,7 @@ h2 {
 
 .game-settings {
     grid-column: 1 / 2;
+    grid-row: 2 / 4;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,6 +125,22 @@ input::placeholder {
 
 #p4Name {
     background-color: var(--P4-COLOR);
+}
+
+.win-settings {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+input[type="radio"] {
+    display: flex;
+    margin: auto;
+}
+
+label {
+    font-size: clamp(1.1rem, 2.2vw, 2.5rem);
+    text-align: left;
+    padding-left: 10px;
 }
 
 .number-wrapper {
@@ -285,7 +302,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100vw;
-    background-color: #111111b2;
+    background-color: #111111;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -310,6 +327,11 @@ button {
 }
 
 
+
+/* ----------------------------------------------------------------------- */
+
+
+
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 768px) {
@@ -324,11 +346,12 @@ button {
     body {
         display: grid;
         grid-template-columns: max(25%, 250px) 1fr;
-        grid-template-rows: 20vh auto 1fr 15vh;
+        grid-template-rows: 20vh 1fr 15vh;
     }
 
     .number-wrapper {
-        background-color: #111111b2;
+        background-color: #11111155;
+        grid-row: 2 / 4;
     }
 
     .current-number {

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bingo Game</title>
-    <link rel="icon" type="image/png" href="img/icon.PNG">
+    <link rel="icon" type="image/png" href="img/icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
@@ -22,14 +22,34 @@
 
     <section id="settings" class="game-settings">
         <h2>Settings:</h2>
+
         <h3>Edit Player Names</h3>
         <input type="text" id="p1Name" name="name" maxlength="10" size="12" placeholder="Player 1">
         <input type="text" id="p2Name" name="name" maxlength="10" size="12" placeholder="Player 2">
         <input type="text" id="p3Name" name="name" maxlength="10" size="12" placeholder="Player 3">
         <input type="text" id="p4Name" name="name" maxlength="10" size="12" placeholder="Player 4">
+
+        <h3>Win Condition</h3>
+        <section class="win-settings">
+            <input type="radio" id="lineWin" name="winCondition" value="line" checked>
+            <label for="lineWin">Line</label>
+
+            <input type="radio" id="fourCornersWin" name="winCondition" value="fourCorners">
+            <label for="fourCornersWin">Four Corners</label>
+
+            <input type="radio" id="xWin" name="winCondition" value="x">
+            <label for="xWin">X</label>
+
+            <input type="radio" id="heartWin" name="winCondition" value="heart">
+            <label for="heartWin">Heart</label>
+
+            <input type="radio" id="blackoutWin" name="winCondition" value="blackout">
+            <label for="blackoutWin">Blackout</label>
+        </section>
+
     </section>
 
-    <section class="number-wrapper">
+    <section id="numberWrapper" class="number-wrapper hidden">
         <h2>Current Number:</h2>
         <p id="currentNumber" class="current-number"></p>
         <p id="announceP1Win" class="announce-winner"></p>

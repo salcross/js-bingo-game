@@ -4,23 +4,7 @@ export default class GameObj {
         this.players = [];
         this.numberOfPlayers = 1;
         this.remainingNumbers = [];
-        this.winningPositions = [ 
-            // vertical lines 
-            [ 0,  1,  2,  3,  4],
-            [ 5,  6,  7,  8,  9],
-            [10, 11, 12, 13, 14],
-            [15, 16, 17, 18, 19],
-            [20, 21, 22, 23, 24],
-            // horizontal lines
-            [0, 5, 10, 15, 20],
-            [1, 6, 11, 16, 21],
-            [2, 7, 12, 17, 22],
-            [3, 8, 13, 18, 23],
-            [4, 9, 14, 19, 24],
-            // diagonal lines
-            [0, 6, 12, 18, 24],
-            [4, 8, 12, 16, 20]
-    ];
+        this.winningPositions = [];
     }
 
     getActiveStatus() {
@@ -75,6 +59,54 @@ export default class GameObj {
 
     getWinningPositions() {
         return this.winningPositions;
+    }
+
+    setWinningPositions(condition) {
+        switch (condition) {
+            case 'line':
+                this.winningPositions = [
+                    // vertical lines 
+                    [ 0,  1,  2,  3,  4],
+                    [ 5,  6,  7,  8,  9],
+                    [10, 11, 12, 13, 14],
+                    [15, 16, 17, 18, 19],
+                    [20, 21, 22, 23, 24],
+                    // horizontal lines
+                    [0, 5, 10, 15, 20],
+                    [1, 6, 11, 16, 21],
+                    [2, 7, 12, 17, 22],
+                    [3, 8, 13, 18, 23],
+                    [4, 9, 14, 19, 24],
+                    // diagonal lines
+                    [0, 6, 12, 18, 24],
+                    [4, 8, 12, 16, 20]
+                ];
+                break;
+            case 'fourCorners':
+                this.winningPositions = [
+                    [0, 4, 20, 24]
+                ];
+                break;
+            case 'x':
+                this.winningPositions = [
+                    [0, 4, 6, 8, 12, 16, 18, 20, 24]
+                ];
+                break;
+            case 'heart':
+                this.winningPositions = [
+                    [1, 2, 5, 8, 11, 14, 15, 18, 21, 22]
+                ];
+                break;
+            case 'blackout':
+                this.winningPositions = [
+                    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+                    10, 11, 12, 13, 14, 15, 16, 17, 
+                    18, 19, 20, 21, 22, 23, 24]
+                ];
+                break;
+            default:
+                return;
+        }
     }
 
 }

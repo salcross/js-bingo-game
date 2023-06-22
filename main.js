@@ -69,6 +69,9 @@ const listenForStartGame = () => {
         Game.setNumberOfPlayers(Game.getPlayers().length);
         changeFreeSpaces();
         startButton.textContent = "Draw Number";
+        const winCondition = document.querySelector('input[name="winCondition"]:checked').value;
+        Game.setWinningPositions(winCondition);
+        toggleCurrentNumber(1);
         toggleSettings(0);
         startGameFlow();
     })
@@ -101,10 +104,17 @@ const listenForNameChange = () => {
 const toggleSettings = (state) => {
     const settings = document.getElementById("settings").children;
     for (let i = 0; i <= (settings.length - 1); i++) {
-        state === 0 ?
-        settings[i].classList.add("hidden")
+        state === 0 
+        ? settings[i].classList.add("hidden")
         : settings[i].classList.remove("hidden");
     }
+}
+
+const toggleCurrentNumber = (state) => {
+    const numberDisplay = document.getElementById("numberWrapper");
+    state === 0 
+    ? numberDisplay.classList.add("hidden")
+    : numberDisplay.classList.remove("hidden")
 }
 
 const changeFreeSpaces = () => {
@@ -164,11 +174,18 @@ const checkForWinner = () => {
     for (let i = 1; i <= (Game.getNumberOfPlayers()); i++) {
         const player = Game.getPlayers()[i - 1];
         const numPositions = player.getPlayerNumberPositions();
+        const winCondition = document.querySelector('input[name="winCondition"]:checked').value;
         const winningPositions = Game.getWinningPositions();
-        for (let j = 0; j <= 11; j++) {
+        if (winCondition === "line") {
+            for (let j = 0; j <= 11; j++) {
             if (winningPositions[j].every(n => numPositions.includes(n))) {
-            displayWinner(j, i);
+                displayWinner(j, i);
+                }
             }
+        } else {
+            if (winningPositions[0].every(n => numPositions.includes(n))) {
+                displayWinner(0, i);
+                }
         }
     }
 }
@@ -176,7 +193,7 @@ const checkForWinner = () => {
 const displayWinner = (n, player) => {
     const winningSquarePositions = Game.getWinningPositions()[n];
     const squares = document.getElementById(`p${player}Squares`).children;
-    for (let i = 0; i <= 4; i++) {
+    for (let i = 0; i <= winningSquarePositions.length - 1; i++) {
         const winningSquare = squares[winningSquarePositions[i]];
         winningSquare.classList.add("winning-number");
     }
@@ -215,6 +232,7 @@ const resetBoard = () => {
     const numberDisplay = document.getElementById("currentNumber");
     numberDisplay.textContent= "";
     toggleButtons();
+    toggleCurrentNumber(0);
     toggleSettings(1);
     document.getElementById("startButton").focus();
 }
